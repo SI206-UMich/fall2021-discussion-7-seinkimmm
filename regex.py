@@ -23,44 +23,61 @@ def find_word(string_list):
     """ Return a list of words that contain three digit numbers in the middle. """
 
     # initialize an empty list
-
+    newlist = []
     # define the regular expression
-
+    regstr = "[a-z]+\d\d\d[a-z]+"
     # loop through each line of the string list 
-
+    for line in string_list:
+        line = line.rstrip()
+        if re.search(regstr, line):
+            newlist.append(line)   
     # find all the words that match the regular expression in each line
     
     # loop through the found words and add the words to your empty list 
 
     #return the list of all words that start with the letter B, E, or T
-    pass
+    # print(newlist)
+    return newlist
 
 
 def find_days(string_list):
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
-
+    newlist = []
+    newList2 = []
     # define the regular expression
-
+    regstr = "\d/\d\d"
     # loop through each line of the string list
-    
+    for line in string_list:
+        line = line.rstrip()
+        if re.search(regstr, line):
+           newlist.append(line)
     # find all the dates that match the regular expression in each line
     
     # loop through the found dates and only add the days to your empty list 
-    
+    for x in newlist:
+        y = x.split("/")
+        newList2.append(y[1])
+   
+
+
+            
     #return the list of days
-    pass
+    return newList2
 
 def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
-
+    newlist = []
     # define the regular expression
-
+    regstr = "www\."
     # loop through each line of the string list
-
+    for line in string_list:
+        line = line.rstrip()
+        if re.search(regstr, line):
+            print(line)
     # find all the domains that match the regular expression in each line
 
     # loop through the found domains
@@ -71,7 +88,7 @@ def find_domains(string_list):
     # add the domains to your empty list
     
     #return the list of domains
-    pass
+    return newlist
 
 class TestAllMethods(unittest.TestCase):
 
